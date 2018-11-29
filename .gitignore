@@ -1,6 +1,4 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-#Angular files/folders to ignore (Front-end)
+#Angular/IDE files/folders to ignore (Front-end)
 
 # compiled output
 /portfolio-front/dist
@@ -12,40 +10,57 @@
 
 # IDEs and editors
 /portfolio-front/.idea
-/portfolio-front/.project
-/portfolio-front/.classpath
-/portfolio-front/.c9/
-/portfolio-front/*.launch
-/portfolio-front/.settings/
-/portfolio-front/*.sublime-workspace
+.c9/
+*.launch
+*.sublime-workspace
 
 # IDE - VSCode
-/portfolio-front/.vscode/*
-!/portfolio-front/.vscode/settings.json
-!/portfolio-front/.vscode/tasks.json
-!/portfolio-front/.vscode/launch.json
-!/portfolio-front/.vscode/extensions.json
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # misc
 /portfolio-front/.sass-cache
 /portfolio-front/connect.lock
 /portfolio-front/coverage
 /portfolio-front/libpeerconnection.log
-/portfolio-front/npm-debug.log
-/portfolio-front/yarn-error.log
-/portfolio-front/testem.log
+npm-debug.log
+yarn-error.log
+testem.log
 /portfolio-front/typings
-
-# System Files
-/portfolio-front/.DS_Store
-/portfolio-front/Thumbs.db
 
 #Angular generated .gitignore
 /portfolio-front/.gitignore
 
+#End of Angular files/folders to ignore (Front-end)
+
+#Java WebAPI/Eclipse files/folders to ignore (Back-end)
+/portfolio-backend/build/
+/portfolio-backend/bin/
+/portfolio-backend/target/
+/portfolio-backend/libs/
+/portfolio-backend/tmp/
+
+.project
+.metadata
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+#End of Java WebAPI/Eclipse files/folders to ignore (Back-end)
+
+### System Files
+.DS_Store
+Thumbs.db
 
 ### Other files used in the project
 /database
 /resources
 
-#End of Angular files/folders to ignore (Front-end)
