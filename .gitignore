@@ -1,0 +1,50 @@
+# Created by https://www.gitignore.io/api/angular,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=angular,visualstudiocode
+
+### Angular ###
+## Angular ##
+# compiled output
+portfolio-front/dist
+portfolio-front/tmp
+portfolio-front/app/**/*.js
+portfolio-front/app/**/*.js.map
+
+# dependencies
+portfolio-front/node_modules
+portfolio-front/bower_components
+
+# IDEs and editors
+portfolio-front/.idea
+
+# misc
+portfolio-front/.sass-cache
+portfolio-front/connect.lock
+portfolio-front/coverage/*
+portfolio-front/libpeerconnection.log
+portfolio-front/npm-debug.log
+portfolio-front/testem.log
+portfolio-front/typings
+
+# e2e
+portfolio-front/e2e/*.js
+portfolio-front/e2e/*.map
+
+#System Files
+portfolio-front/.DS_Store
+
+### VisualStudioCode ###
+portfolio-front/.vscode/*
+!portfolio-front/.vscode/settings.json
+!portfolio-front/.vscode/tasks.json
+!portfolio-front/.vscode/launch.json
+!portfolio-front/.vscode/extensions.json
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+portfolio-front/.history
+
+### Other files used in the project
+/database
+/resources
+
+# End of https://www.gitignore.io/api/angular,visualstudiocode
