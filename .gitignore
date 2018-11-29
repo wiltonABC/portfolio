@@ -3,45 +3,45 @@
 #Angular files/folders to ignore (Front-end)
 
 # compiled output
-portfolio-front/dist
-portfolio-front/tmp
-portfolio-front/out-tsc
+/portfolio-front/dist
+/portfolio-front/tmp
+/portfolio-front/out-tsc
 
 # dependencies
-portfolio-front/node_modules
+/portfolio-front/node_modules
 
 # IDEs and editors
-portfolio-front/.idea
-portfolio-front/.project
-portfolio-front/.classpath
-portfolio-front/.c9/
-portfolio-front/*.launch
-portfolio-front/.settings/
-portfolio-front/*.sublime-workspace
+/portfolio-front/.idea
+/portfolio-front/.project
+/portfolio-front/.classpath
+/portfolio-front/.c9/
+/portfolio-front/*.launch
+/portfolio-front/.settings/
+/portfolio-front/*.sublime-workspace
 
 # IDE - VSCode
-portfolio-front/.vscode/*
-!portfolio-front/.vscode/settings.json
-!portfolio-front/.vscode/tasks.json
-!portfolio-front/.vscode/launch.json
-!portfolio-front/.vscode/extensions.json
+/portfolio-front/.vscode/*
+!/portfolio-front/.vscode/settings.json
+!/portfolio-front/.vscode/tasks.json
+!/portfolio-front/.vscode/launch.json
+!/portfolio-front/.vscode/extensions.json
 
 # misc
-portfolio-front/.sass-cache
-portfolio-front/connect.lock
-portfolio-front/coverage
-portfolio-front/libpeerconnection.log
-portfolio-front/npm-debug.log
-portfolio-front/yarn-error.log
-portfolio-front/testem.log
-portfolio-front/typings
+/portfolio-front/.sass-cache
+/portfolio-front/connect.lock
+/portfolio-front/coverage
+/portfolio-front/libpeerconnection.log
+/portfolio-front/npm-debug.log
+/portfolio-front/yarn-error.log
+/portfolio-front/testem.log
+/portfolio-front/typings
 
 # System Files
-portfolio-front/.DS_Store
-portfolio-front/Thumbs.db
+/portfolio-front/.DS_Store
+/portfolio-front/Thumbs.db
 
 #Angular generated .gitignore
-portfolio-front/.gitignore
+/portfolio-front/.gitignore
 
 
 ### Other files used in the project
