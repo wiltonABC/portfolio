@@ -1,0 +1,422 @@
+<header class="header" id="home">
+  <nav class="navbar navbar-dark navbar-expand-lg fixed-top darkerPurpleBackground" >
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a (click)="scrollClick($event.target)" class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a (click)="scrollClick($event.target)" class="nav-link" href="#about">About me</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="scrollClick($event.target)" class="nav-link" href="#skills">My skills</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="scrollClick($event.target)" class="nav-link" href="#work">Work experience</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="scrollClick($event.target)" class="nav-link" href="#about-site">About this site</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="scrollClick($event.target)" class="nav-link" href="#feedbacks" >Feedbacks</a>
+        </li>
+        <li class="nav-item">
+          <a (click)="scrollClick($event.target)" class="nav-link" href="#contact">Contact me</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+<div class="rightNavbarButtons">
+    <img src="/assets/img/linkedin.png">
+    <img src="/assets/img/github.png">
+</div>  
+
+<div id="containerBackground">
+  <div id="title">
+    <div >
+      <h1>{{ shortName }}</h1>  
+      <p>{{ mainActivity }}</p>
+    </div>
+  </div>
+
+  <div id="containerCarousel" class="container">
+    
+
+      <div id="carouselTechLogos" class="carousel slide" data-ride="carousel"> 
+        <ol class="carousel-indicators">
+          <li data-target="#carouselTechLogos" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselTechLogos" data-slide-to="1"></li>
+          <li data-target="#carouselTechLogos" data-slide-to="2"></li>
+          <li data-target="#carouselTechLogos" data-slide-to="3"></li>
+          <li data-target="#carouselTechLogos" data-slide-to="4"></li>
+          <li data-target="#carouselTechLogos" data-slide-to="5"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block img-fluid" src="/assets/img/angular_512.png" alt="First slide">
+            <div class="carousel-caption d-md-block">
+              <h5>Angular</h5>
+              <p>Powerful front-end development framework</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="/assets/img/html5_512.png" alt="Second slide">  
+            <div class="carousel-caption d-md-block">
+                <h5>HTML</h5>
+                <p>For front-end design</p>
+              </div>  
+          </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="/assets/img/java_512.png" alt="Third slide">    
+            <div class="carousel-caption d-md-block">
+              <h5>Java</h5>
+              <p>Used in front-end, back-end, desktop and mobile apps</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+
+              <img class="d-block img-fluid" src="/assets/img/android_512.png" alt="Fourth slide"> 
+          <div class="carousel-caption d-md-block">
+                <h5>Android</h5>
+                <p>Native Android development</p>
+              </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="/assets/img/mysql_512.png" alt="Fifth slide"> 
+            <div class="carousel-caption d-md-block">
+                <h5>Mysql</h5>
+                <p>Great GPL DBMS</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="/assets/img/postgres_512.png" alt="Sixth slide"> 
+            <div class="carousel-caption d-md-block">
+                <h5>Postgres</h5>
+                <p>Powerful open-source DBMS</p>
+            </div>   
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselTechLogos" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>  
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselTechLogos" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>  
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</header>
+
+<section id="about" class="container-fluid">
+  <div class="container pt-5 pb-5">
+    <div class="row">
+      <div class="col-lg-8 col-md-7 col-sm-12">
+        <h2 class="text-white pb-4">About me</h2>
+        <p class="text-white text-justify mb-3">I'm a software developer since 1999 and I have worked with many kinds of solutions trhough these years includind back-end, front-end, desktop and mobile applications.<br><br>
+        I like to experience new challenges and learn new technologies. So, I've been always adding new IT knowledge to my skill set during my career.<br><br>
+        My main goal is to provide modern and smart software solutions to the clients, no mather if I work as a freelancer or as an employee.</p>
+      </div>
+      <div class="col-lg-4 col-md-5 col-sm-12 centerAlignedContent">
+        <img class="thumbnail roundedImg align-middle" src="/assets/img/wilton.jpg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="container-fluid lightGreyBackground">
+  <div class="container pt-5 pb-5">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-left pb-4">My skills</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-6 mb-5">
+        <div class="card">
+          <img class="card-image-top img-fluid" src="/assets/img/front-end.png">
+          <div class="card-header">
+            <strong>Front-end</strong>
+          </div>  
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">HTML</li>
+            <li class="list-group-item">CSS</li>
+            <li class="list-group-item">Javascript</li>
+            <li class="list-group-item">Angular</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 mb-5">
+        <div class="card">
+          <img class="card-image-top img-fluid" src="/assets/img/back-end.png">
+          <div class="card-header">
+            <strong>Back-end</strong>
+          </div>  
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Java</li>
+            <li class="list-group-item">Asp.net</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 mb-5">
+        <div class="card">
+          <img class="card-image-top img-fluid" src="/assets/img/mobile.png">
+          <div class="card-header">
+            <strong>Mobile</strong>
+          </div>  
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Android</li>
+            <li class="list-group-item">Ionic</li>
+            <li class="list-group-item">IOS</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-6 mb-5">
+        <div class="card">
+          <img class="card-image-top img-fluid" src="/assets/img/database.png">
+          <div class="card-header">
+            <strong>Database</strong>
+          </div>  
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Sql Server</li>
+            <li class="list-group-item">Oracle</li>
+            <li class="list-group-item">Postgresql</li>
+            <li class="list-group-item">Mysql</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 mb-5">
+        <div class="card">
+          <img class="card-image-top img-fluid" src="/assets/img/bi.png">
+          <div class="card-header">
+            <strong>Business Inteligence</strong>
+          </div>  
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">SAP BODS (ETL)</li>
+            <li class="list-group-item">Webfocus</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="container-fluid">
+  <div class="container pt-5 pb-5">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="text-left pb-4 text-white">Work experience</h2>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
+        <img class="img-fluid" src="/assets/img/analytics.png">
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
+        <h4>BI Applications</h4>
+        <p class="text-justify">I`ve been working in BI applications for the brazilian federal government about three years, developing ETL
+          routines using SAP BODS and creating data visualization and reporting tools with Webfocus. The main challenge working with these
+          projects is the huge amount of data that the systems have to manipulate, reaching the range of billions of records.
+        </p>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
+        <img class="img-fluid" src="/assets/img/cashier.png">
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
+        <h4>Integrated Sales System</h4>
+        <p class="text-justify">I worked several months creating new features and maintaning an integrated sales system for a software company where I worked.
+            The software was the major product of the company at the time. Capable of managing the main
+            areas of a business enviroment, such as sales, purchases, products, customer, suppliers, logistics, stock, finance and accounting. Iniatially written 
+            in Delphi using Firebird as database, was improved after gaining new asp.net web modules written in visual basic using Sql Server as database. I worked
+            in both desktop and web portions of the app.    
+        </p>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
+        <img class="img-fluid" src="/assets/img/customer-service.png">
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
+        <h4>Custormer Service App</h4>
+        <p class="text-justify">I took part in the development team of a desktop application to manage customer service enviroments. The app was capable
+          of controlling client queues in any kind of business, working with tickets and a panel to call customers for attendance.  
+        </p>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
+        <img class="img-fluid" src="/assets/img/transportation.png">
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
+        <h4>Transportation Software</h4>
+        <p class="text-justify">A transportation software that helped companies to organize, manage and control shipment related operations,
+          like loading trucks, separating packages by destination and generating billing information.   
+        </p>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
+        <img class="img-fluid" src="/assets/img/car-shop.png">
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
+        <h4>Car Store App</h4>
+        <p class="text-justify">An application designed to car stores. Capable of managing the entire process involved in a car sale operation, from the aquisition
+          through the vehicle maintainance to the sale itself. Featuring also finance, clients, suppliers and sales person control modules.     
+        </p>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
+        <img class="img-fluid" src="/assets/img/sales-force.png">
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
+        <h4>Sales Force Mobile App</h4>
+        <p class="text-justify">Work on a sales force mobile app designed to help sales person on the field to register sales, see products prices and stock and note 
+          customers demands. The app was synchronized through a webservice back-end and was part of a major integrated business software.     
+        </p>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
+        <img class="img-fluid" src="/assets/img/businesses-network.png">
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
+        <h4>Companies Network Web Application</h4>
+        <p class="text-justify">I participed in the development of a web application for companies networks. The main goal of
+          this software was to help companies networks to manage their purchases from suppliers. Putting all the individual company orders
+          together for the suppliers visualization, making price negociation easier and faster.   
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section  id="about-site" class="container-fluid lightGreyBackground">
+  <div class="container pt-5 pb-5">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="pb-4">About this site</h2>
+        <p class="text-justify">
+          This site was made to work as an online portfolio for myself. I decided not to use any pre-made tool or online service to
+          do this because I wanted to show my software development skills trhough this website. 
+          <br><br>
+          Like almost all software products that I worked on 
+          were company owned, I had little work to show in details. No source codes, database models, etc. 
+          <br><br>
+          So, to portrait a little of my
+          work experience and skills I built a solution composed of a Web front-end, a REST API for the back-end part and a mobile application. 
+          The front-end was build using Angular, the back-end was build using java and the mobile app was build using native Android. 
+          <br><br>
+          The main intent of this entire solution is to demonstrate my abilities, putting together some of the technologies I've been working with. 
+          Technological choices were not made considering the best architectural model, but the greater number of technical skills used.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section  id="feedbacks" class="container-fluid darkerPurpleBackground text-white">
+  <div class="container pt-5 pb-5">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="pb-4">Feedbacks</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div id="feedbacksContainer" class="col-lg-6 col-md-6 col-sm-12 p-4 rounded alphaWhiteBackground">
+        <div class="mb-4 text-dark">
+          <p class="text-justify"><strong>"You portfolio is very nice. Great set of skills."</strong></p>
+          <p class="text-right">Some author - Some company</p>
+        </div>
+        <div class="mb-4 text-dark">
+          <p class="text-justify"><strong>"Congratulations Wilton. Good luck finding your next job."</strong></p>
+          <p class="text-right">Wilton - My company</p>
+        </div>
+        <div class="mb-4 text-dark">
+          <p class="text-justify"><strong>"Nice employee. Always committed and responsible."</strong></p>
+          <p class="text-right">Boss - Company ABC</p>
+        </div>
+        <button type="button" class="btn btn-outline-dark">Show more</button>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <h4>Leave you feedback</h4>
+        <form>
+          <div class="form-group">
+            <label labelFor="author">Author</label>
+            <input id="author" type="text" class="form-control" >
+          </div>
+          <div class="form-group">
+            <label labelFor="company">Company</label>
+            <input id="company" type="text" class="form-control" >
+          </div>
+          <div class="form-group">
+            <label labelFor="feedback">Feedback</label>
+            <textarea id="feedback" class="form-control"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send feedback</button>
+        </form>  
+      </div>
+    </div>
+  </div>
+</section>
+
+<section  id="contact" class="container-fluid lightGreyBackground">
+  <div class="container pt-5 pb-5">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="pb-4">Contact me</h2>
+      </div>
+    </div>
+
+
+    <form>
+      <div class="form-row">
+        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+          <label labelFor="name">Name</label>
+          <input id="name" type="text" class="form-control" >
+        </div>
+        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+          <label labelFor="email">Email</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">@</div>
+            </div>
+            <input id="email" type="email" class="form-control" >
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label labelFor="subject">Subject</label>
+        <input id="subject" type="text" class="form-control" >
+      </div>
+      <div class="form-group">
+        <label labelFor="message">Message</label>
+        <textarea id="message" class="form-control"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send message</button>          
+    </form>
+  </div>
+</section>
+
+<footer class="bg-dark">
+  <div class="text-white">
+    <address class="mb-0">
+      <strong>Wilton Gomes da Costa Júnior</strong><br>
+      E-mail: wiltongomesjr@gmail.com
+    </address>
+  </div>
+</footer>
+
+<router-outlet></router-outlet>
