@@ -61,7 +61,7 @@ public class ProfileResource {
 			if (profile == null) {
 				response = Response.status(404).build();
 			} else {
-				response= Response.ok(profile).header("Access-Control-Allow-Origin", "*").build();
+				response= Response.ok(profile).build();
 			}
 		} 
 		catch (Exception ex) {

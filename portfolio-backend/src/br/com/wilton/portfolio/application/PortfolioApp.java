@@ -6,6 +6,8 @@ import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.message.filtering.EntityFilteringFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 
+import br.com.wilton.portfolio.filter.CorsResponseFilter;
+
 
 //Class to startup webservice resources configuration (web.xml substitute) 
 @ApplicationPath("webapi")
@@ -16,6 +18,9 @@ public class PortfolioApp extends ResourceConfig {
 		//Registering Jackson as the Json Serializer and enabling Entity Filtering
 		register(EntityFilteringFeature.class);
 		register(JacksonFeature.class);
+		
+		//Registering a response filter
+		register(CorsResponseFilter.class);
 		
 		/* When ResourceConfig is used instead of Application the autodiscover is disabled 
 		 * so we need to register resources here
