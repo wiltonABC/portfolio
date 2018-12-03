@@ -1,0 +1,10 @@
+#work {
+    background-color: rgb(49, 152, 255);
+}
+
+@media (max-width: 575.98px) {
+    
+   #work img {
+       width: 70%;
+   }
+}

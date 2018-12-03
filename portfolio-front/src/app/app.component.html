@@ -1,177 +1,11 @@
-<app-header></app-header>
+<app-header [shortName]="this.profile?.shortName" [mainActivity]="this.profile?.mainActivity"></app-header>
 
-<app-about></app-about>
+<app-about [about]="this.profile?.about" [image]="this.profile?.image"></app-about>
 
-<section id="skills" class="container-fluid lightGreyBackground">
-  <div class="container pt-5 pb-5">
-    <div class="row">
-      <div class="col-12">
-        <h2 class="text-left pb-4">My skills</h2>
-      </div>
-    </div>
+<app-skill [skills]="skills"></app-skill>
 
-    <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-6 mb-5">
-        <div class="card">
-          <img class="card-image-top img-fluid" src="/assets/img/front-end.png">
-          <div class="card-header">
-            <strong>Front-end</strong>
-          </div>  
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">HTML</li>
-            <li class="list-group-item">CSS</li>
-            <li class="list-group-item">Javascript</li>
-            <li class="list-group-item">Angular</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-6 mb-5">
-        <div class="card">
-          <img class="card-image-top img-fluid" src="/assets/img/back-end.png">
-          <div class="card-header">
-            <strong>Back-end</strong>
-          </div>  
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Java</li>
-            <li class="list-group-item">Asp.net</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-6 mb-5">
-        <div class="card">
-          <img class="card-image-top img-fluid" src="/assets/img/mobile.png">
-          <div class="card-header">
-            <strong>Mobile</strong>
-          </div>  
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Android</li>
-            <li class="list-group-item">Ionic</li>
-            <li class="list-group-item">IOS</li>
-          </ul>
-        </div>
-      </div>
+<app-work-done [workDone]="workDone"></app-work-done>
 
-      <div class="col-lg-4 col-md-4 col-sm-6 mb-5">
-        <div class="card">
-          <img class="card-image-top img-fluid" src="/assets/img/database.png">
-          <div class="card-header">
-            <strong>Database</strong>
-          </div>  
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Sql Server</li>
-            <li class="list-group-item">Oracle</li>
-            <li class="list-group-item">Postgresql</li>
-            <li class="list-group-item">Mysql</li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-6 mb-5">
-        <div class="card">
-          <img class="card-image-top img-fluid" src="/assets/img/bi.png">
-          <div class="card-header">
-            <strong>Business Inteligence</strong>
-          </div>  
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">SAP BODS (ETL)</li>
-            <li class="list-group-item">Webfocus</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="work" class="container-fluid">
-  <div class="container pt-5 pb-5">
-    <div class="row">
-      <div class="col-12">
-        <h2 class="text-left pb-4 text-white">Work experience</h2>
-      </div>
-    </div>
-    <div class="row mb-5">
-      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
-        <img class="img-fluid" src="/assets/img/analytics.png">
-      </div>
-      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
-        <h4>BI Applications</h4>
-        <p class="text-justify">I`ve been working in BI applications for the brazilian federal government about three years, developing ETL
-          routines using SAP BODS and creating data visualization and reporting tools with Webfocus. The main challenge working with these
-          projects is the huge amount of data that the systems have to manipulate, reaching the range of billions of records.
-        </p>
-      </div>
-    </div>
-    <div class="row mb-5">
-      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
-        <img class="img-fluid" src="/assets/img/cashier.png">
-      </div>
-      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
-        <h4>Integrated Sales System</h4>
-        <p class="text-justify">I worked several months creating new features and maintaning an integrated sales system for a software company where I worked.
-            The software was the major product of the company at the time. Capable of managing the main
-            areas of a business enviroment, such as sales, purchases, products, customer, suppliers, logistics, stock, finance and accounting. Iniatially written 
-            in Delphi using Firebird as database, was improved after gaining new asp.net web modules written in visual basic using Sql Server as database. I worked
-            in both desktop and web portions of the app.    
-        </p>
-      </div>
-    </div>
-    <div class="row mb-5">
-      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
-        <img class="img-fluid" src="/assets/img/customer-service.png">
-      </div>
-      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
-        <h4>Custormer Service App</h4>
-        <p class="text-justify">I took part in the development team of a desktop application to manage customer service enviroments. The app was capable
-          of controlling client queues in any kind of business, working with tickets and a panel to call customers for attendance.  
-        </p>
-      </div>
-    </div>
-    <div class="row mb-5">
-      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
-        <img class="img-fluid" src="/assets/img/transportation.png">
-      </div>
-      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
-        <h4>Transportation Software</h4>
-        <p class="text-justify">A transportation software that helped companies to organize, manage and control shipment related operations,
-          like loading trucks, separating packages by destination and generating billing information.   
-        </p>
-      </div>
-    </div>
-    <div class="row mb-5">
-      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
-        <img class="img-fluid" src="/assets/img/car-shop.png">
-      </div>
-      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
-        <h4>Car Store App</h4>
-        <p class="text-justify">An application designed to car stores. Capable of managing the entire process involved in a car sale operation, from the aquisition
-          through the vehicle maintainance to the sale itself. Featuring also finance, clients, suppliers and sales person control modules.     
-        </p>
-      </div>
-    </div>
-    <div class="row mb-5">
-      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
-        <img class="img-fluid" src="/assets/img/sales-force.png">
-      </div>
-      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
-        <h4>Sales Force Mobile App</h4>
-        <p class="text-justify">Work on a sales force mobile app designed to help sales person on the field to register sales, see products prices and stock and note 
-          customers demands. The app was synchronized through a webservice back-end and was part of a major integrated business software.     
-        </p>
-      </div>
-    </div>
-    <div class="row mb-5">
-      <div class="col-lg-2 col-md-2 col-sm-12 m-auto centerAlignedContent">
-        <img class="img-fluid" src="/assets/img/businesses-network.png">
-      </div>
-      <div class="col-lg-10 col-md-10 col-sm-12 m-auto text-white">
-        <h4>Companies Network Web Application</h4>
-        <p class="text-justify">I participed in the development of a web application for companies networks. The main goal of
-          this software was to help companies networks to manage their purchases from suppliers. Putting all the individual company orders
-          together for the suppliers visualization, making price negociation easier and faster.   
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section  id="about-site" class="container-fluid lightGreyBackground">
   <div class="container pt-5 pb-5">
@@ -196,6 +30,7 @@
     </div>
   </div>
 </section>
+
 
 <section  id="feedbacks" class="container-fluid darkerPurpleBackground text-white">
   <div class="container pt-5 pb-5">

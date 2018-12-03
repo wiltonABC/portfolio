@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-declare var $ : any;
+import { ProfileService } from './profile/profile.service';
+import { Profile } from './profile/profile';
+import { Skill } from './skill/skill';
+import { WorkDone } from './work-done/work-done';
 
 @Component({
   selector: 'app-root',
@@ -9,18 +11,18 @@ declare var $ : any;
 })
 export class AppComponent implements OnInit {
   title = 'portfolio-front';
+
+  profile : Profile;
+  skills : Skill[];
+  workDone : WorkDone[];
   
-  constructor () {}
+  constructor (private profileService : ProfileService) {}
 
   ngOnInit(): void {
-  }
+    this.profileService.getProfile(1).subscribe(profile => this.profile = profile );
 
+    this.profileService.getSkills(1).subscribe(skills => this.skills = skills );
 
-  scrollClick(element) {
-    $('#navbarContent').collapse('hide');
-
-    $('html, body').animate({
-      scrollTop: $( $(element).attr('href') ).offset().top
-    }, 500);   
+    this.profileService.getWorkDone(1).subscribe(workDone => this.workDone = workDone);
   }
 }

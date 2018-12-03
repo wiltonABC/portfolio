@@ -1,21 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../profile/profile.service';
-import { Profile } from '../profile/profile';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Input } from '@angular/core';
+
+declare var $ : any;
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  private profile : Profile;
+  @Input()
+  shortName : string;
 
-  constructor(private profileService : ProfileService) { }
+  @Input()
+  mainActivity : string;
 
-  ngOnInit() {
-    this.profileService.getProfile().subscribe(profile => this.profile = profile);
+  constructor() { }
+
+  scrollClick(element) {
+    $('#navbarContent').collapse('hide');
+
+    $('html, body').animate({
+      scrollTop: $( $(element).attr('href') ).offset().top
+    }, 500);   
   }
 
 }

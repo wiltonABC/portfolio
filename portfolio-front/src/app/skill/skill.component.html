@@ -1,0 +1,23 @@
+<section id="skills" class="container-fluid lightGreyBackground">
+    <div class="container pt-5 pb-5">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="text-left pb-4">My skills</h2>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div *ngFor="let category of skillsByCategory" class="col-lg-4 col-md-4 col-sm-6 mb-5">
+          <div class="card">
+            <img class="card-image-top img-fluid" [src]="category.image">
+            <div class="card-header">
+              <strong>{{category.name}}</strong>
+            </div>  
+            <ul class="list-group list-group-flush">
+              <li *ngFor="let skill of category.skills" class="list-group-item">{{ skill.name }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

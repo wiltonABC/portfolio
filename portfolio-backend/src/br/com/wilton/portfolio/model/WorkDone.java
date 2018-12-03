@@ -24,6 +24,9 @@ public class WorkDone {
 	@JsonBackReference
 	private Profile profile; 
 	
+	@Column(length=40)
+	private String name; 
+	
 	@Column(length=200)
 	private String image; 
 	
@@ -50,6 +53,14 @@ public class WorkDone {
 
 	public void setProfile(Profile profile) {
 		this.profile = profile;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getImage() {

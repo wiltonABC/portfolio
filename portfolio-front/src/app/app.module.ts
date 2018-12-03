@@ -7,12 +7,16 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { AboutComponent } from './about/about.component';
+import { SkillComponent } from './skill/skill.component';
+import { WorkDoneComponent } from './work-done/work-done.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AboutComponent
+    AboutComponent,
+    SkillComponent,
+    WorkDoneComponent
   ],
   imports: [
     BrowserModule,

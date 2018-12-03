@@ -1,24 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../profile/profile.service';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { Profile } from '../profile/profile';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
 
-  profile$ : Observable<Profile>;
+  @Input()
+  about : string;
 
-  constructor(private profileService : ProfileService) { }
+  @Input()
+  image : string;
 
-  ngOnInit() {
-
-    this.profile$ = this.profileService.getProfile(1);
-
-  }
+  constructor() { }
 
 }
