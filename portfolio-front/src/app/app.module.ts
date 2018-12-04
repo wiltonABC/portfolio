@@ -9,6 +9,8 @@ import { HeaderComponent } from './header/header.component';
 import { AboutComponent } from './about/about.component';
 import { SkillComponent } from './skill/skill.component';
 import { WorkDoneComponent } from './work-done/work-done.component';
+import { FeedbacksComponent } from './feedbacks/feedbacks.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,16 @@ import { WorkDoneComponent } from './work-done/work-done.component';
     HeaderComponent,
     AboutComponent,
     SkillComponent,
-    WorkDoneComponent
+    WorkDoneComponent,
+    FeedbacksComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

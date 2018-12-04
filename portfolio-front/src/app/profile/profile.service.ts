@@ -10,6 +10,8 @@ const API = environment.ApiUrl;
 
 @Injectable({ providedIn:'root' })
 export class ProfileService {
+
+    profileSubject
     
     constructor(private httpClient : HttpClient) { 
     }
