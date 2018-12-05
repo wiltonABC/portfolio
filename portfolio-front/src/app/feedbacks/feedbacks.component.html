@@ -7,7 +7,11 @@
     </div>
     <div class="row">
       <div id="feedbacksContainer" class="col-lg-6 col-md-6 col-sm-12 p-4 rounded alphaWhiteBackground">
-        <div class="mb-4 text-dark">
+        <div *ngFor="let feedback of getFeedbacks() | async" class="mb-4 text-dark">
+          <p class="text-justify"><strong>"{{ feedback.text }}"</strong></p>
+          <p class="text-right">{{ feedback.author }} - {{ feedback.company }}</p>
+        </div>
+<!--         <div class="mb-4 text-dark">
           <p class="text-justify"><strong>"You portfolio is very nice. Great set of skills."</strong></p>
           <p class="text-right">Some author - Some company</p>
         </div>
@@ -18,25 +22,35 @@
         <div class="mb-4 text-dark">
           <p class="text-justify"><strong>"Nice employee. Always committed and responsible."</strong></p>
           <p class="text-right">Boss - Company ABC</p>
-        </div>
-        <button type="button" class="btn btn-outline-dark">Show more</button>
+        </div> -->
+        <button type="button" class="btn btn-outline-dark" (click)="showOlder()" *ngIf="(getFeedbacks() | async)?.length>0; else noMoreFeedbacks">Show older feedbacks</button>
+        <ng-template #noMoreFeedbacks>
+            <p class="text-justify text-dark"><strong>No more feedbacks to show!</strong></p>
+          <button type="button" class="btn btn-outline-dark" (click)="updateFeedbacks()">Show newest feedbacks</button>
+        </ng-template>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-12">
         <h4>Leave you feedback</h4>
-        <form #form="ngForm" [formGroup]="feedbackForm" (submit)="addFeedback()">
+        <form #form="ngForm" [formGroup]="feedbackForm">
           <div class="form-group">
             <label labelFor="author">Author</label>
+            <span class="text-danger" *ngIf="feedbackForm.get('author').errors?.required && form.submitted"> * Author required</span>
+            <span class="text-danger" *ngIf="feedbackForm.get('author').errors?.maxlength && form.submitted"> * Maximum length is 30</span>
             <input formControlName="author" id="author" type="text" class="form-control" >
           </div>
           <div class="form-group">
             <label labelFor="company">Company</label>
+            <span class="text-danger" *ngIf="feedbackForm.get('company').errors?.required && form.submitted"> * Company required</span>
+            <span class="text-danger" *ngIf="feedbackForm.get('company').errors?.maxlength && form.submitted"> * Maximum length is 30</span>
             <input formControlName="company" id="company" type="text" class="form-control" >
           </div>
           <div class="form-group">
             <label labelFor="feedback">Feedback</label>
+            <span class="text-danger" *ngIf="feedbackForm.get('text').errors?.required && form.submitted"> * Feedback required</span>
+            <span class="text-danger" *ngIf="feedbackForm.get('text').errors?.maxlength && form.submitted"> * Maximum length is 60</span>
             <textarea formControlName="text" id="feedback" class="form-control"></textarea>
           </div>
-          <button type="submit" class="btn btn-primary">Send feedback</button>
+          <button type="submit" (click)="addFeedback();" class="btn btn-primary">Send feedback</button>
         </form>  
       </div>
     </div>

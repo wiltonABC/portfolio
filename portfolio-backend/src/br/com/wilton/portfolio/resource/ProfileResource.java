@@ -11,6 +11,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -173,12 +174,13 @@ public class ProfileResource {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("{id}/feedbacks")
-	public Response getProfileFeedbacks(@PathParam("id") long id) {
+	public Response getProfileFeedbacks(@PathParam("id") long id, 
+			@QueryParam("page") int page, @QueryParam("pageCount") int pageCount) {
 		
 		Response response = null;
 		
 		try {	
-			List<Feedback> feedbacks = feedbackDao.findByProfile(id);
+			List<Feedback> feedbacks = feedbackDao.findByProfile(id, page, pageCount);
 			
 			GenericEntity<List<Feedback>> entity = new GenericEntity<List<Feedback>>(feedbacks){};
 			

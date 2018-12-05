@@ -15,9 +15,13 @@ public class FeedbackDao extends GenericDao<Feedback> {
 		return Feedback.class;
 	}
 
-	public List<Feedback> findByProfile(long id) {
+	public List<Feedback> findByProfile(long id, int page, int pageCount) {
 		TypedQuery<Feedback> query = em.createQuery("select f from feedback f inner join f.profile p "
-				+ "where p.idProfile = :idProfile ", Feedback.class);
+				+ "where p.idProfile = :idProfile order by f.dateCreated desc ", Feedback.class);
+		if (page > 0 && pageCount > 0) {
+			query.setFirstResult(page * pageCount - pageCount);
+			query.setMaxResults(pageCount);
+		}
 		query.setParameter("idProfile", id);
 		return query.getResultList();
 	}
