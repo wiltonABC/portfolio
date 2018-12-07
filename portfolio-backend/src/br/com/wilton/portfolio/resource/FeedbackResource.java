@@ -15,7 +15,6 @@ import javax.ws.rs.core.Response;
 
 import br.com.wilton.portfolio.dao.FeedbackDao;
 import br.com.wilton.portfolio.model.Feedback;
-import br.com.wilton.portfolio.model.Profile;
 
 @Stateless
 @Path("feedbacks")

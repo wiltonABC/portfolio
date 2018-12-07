@@ -11,6 +11,7 @@ import { SkillComponent } from './skill/skill.component';
 import { WorkDoneComponent } from './work-done/work-done.component';
 import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     AboutComponent,
     SkillComponent,
     WorkDoneComponent,
-    FeedbacksComponent
+    FeedbacksComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

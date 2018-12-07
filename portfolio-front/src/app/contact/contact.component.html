@@ -1,0 +1,46 @@
+<section  id="contact" class="container-fluid lightGreyBackground">
+  <div class="container pt-5 pb-5">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="pb-4">Contact me</h2>
+      </div>
+    </div>
+
+
+    <form #form="ngForm" [formGroup]="contactForm" (submit)="sendMessage()">
+      <div class="form-row">
+        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+          <label labelFor="name">Name</label>
+          <span class="text-danger" *ngIf="contactForm.get('name').errors?.required && form.submitted"> * Name required</span>
+          <span class="text-danger" *ngIf="contactForm.get('name').errors?.maxlength && form.submitted"> * Maximum length is 30</span>
+          <input formControlName="name" id="name" type="text" class="form-control" >
+        </div>
+        <div class="form-group col-lg-6 col-md-6 col-sm-12">
+          <label labelFor="email">Email</label>
+          <span class="text-danger" *ngIf="contactForm.get('email').errors?.required && form.submitted"> * Email required</span>
+          <span class="text-danger" *ngIf="contactForm.get('email').errors?.maxlength && form.submitted"> * Maximum length is 30</span>
+          <span class="text-danger" *ngIf="contactForm.get('email').errors?.email && form.submitted"> * Invalid email</span>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text">@</div>
+            </div>
+            <input formControlName="email" id="email" type="email" class="form-control" >
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label labelFor="subject">Subject</label>
+        <span class="text-danger" *ngIf="contactForm.get('subject').errors?.required && form.submitted"> * Subject required</span>
+        <span class="text-danger" *ngIf="contactForm.get('subject').errors?.maxlength && form.submitted"> * Maximum length is 30</span>
+        <input formControlName="subject" id="subject" type="text" class="form-control" >
+      </div>
+      <div class="form-group">
+        <label labelFor="message">Message</label>
+        <span class="text-danger" *ngIf="contactForm.get('message').errors?.required && form.submitted"> * Message required</span>
+        <span class="text-danger" *ngIf="contactForm.get('message').errors?.maxlength && form.submitted"> * Maximum length is 30</span>
+        <textarea formControlName="message" id="message" class="form-control"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send message</button>          
+    </form>
+  </div>
+</section>
