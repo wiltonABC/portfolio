@@ -11,18 +11,6 @@
           <p class="text-justify"><strong>"{{ feedback.text }}"</strong></p>
           <p class="text-right">{{ feedback.author }} - {{ feedback.company }}</p>
         </div>
-<!--         <div class="mb-4 text-dark">
-          <p class="text-justify"><strong>"You portfolio is very nice. Great set of skills."</strong></p>
-          <p class="text-right">Some author - Some company</p>
-        </div>
-        <div class="mb-4 text-dark">
-          <p class="text-justify"><strong>"Congratulations Wilton. Good luck finding your next job."</strong></p>
-          <p class="text-right">Wilton - My company</p>
-        </div>
-        <div class="mb-4 text-dark">
-          <p class="text-justify"><strong>"Nice employee. Always committed and responsible."</strong></p>
-          <p class="text-right">Boss - Company ABC</p>
-        </div> -->
         <button type="button" class="btn btn-outline-dark" (click)="showOlder()" *ngIf="(getFeedbacks() | async)?.length>0; else noMoreFeedbacks">Show older feedbacks</button>
         <ng-template #noMoreFeedbacks>
             <p class="text-justify text-dark"><strong>No more feedbacks to show!</strong></p>

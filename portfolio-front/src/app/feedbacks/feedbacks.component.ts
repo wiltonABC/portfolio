@@ -4,7 +4,7 @@ import { FeedbackService } from './feedback.service';
 import { Feedback } from './feedback';
 import { ProfileService } from '../profile/profile.service';
 import { Profile } from '../profile/profile';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-feedbacks',
@@ -14,8 +14,15 @@ import { BehaviorSubject } from 'rxjs';
 export class FeedbacksComponent implements OnInit {
 
   feedbackForm : FormGroup;
+  
+  profileSubject = new Subject<Profile>();
+  
   @Input()
-  profile : Profile;
+  set profile (value) {
+    this.profileSubject.next(value);
+  };
+
+  feedbackProfile : Profile;
 
   page : number = 1;
 
@@ -35,13 +42,18 @@ export class FeedbacksComponent implements OnInit {
       text : ['', [Validators.required, Validators.maxLength(60)]]
     });
 
-    this.updateFeedbacks();
+    this.profileSubject.asObservable().subscribe(profile => {
+      this.feedbackProfile = profile;
+      this.updateFeedbacks()
+    }
+    
+    );
   }
 
   addFeedback() {
-    if (this.feedbackForm.valid && !this.feedbackForm.pending && this.profile) {
+    if (this.feedbackForm.valid && !this.feedbackForm.pending && this.feedbackProfile) {
       let feedback : Feedback = this.feedbackForm.getRawValue() as Feedback;
-      feedback.profile = this.profile;
+      feedback.profile = this.feedbackProfile;
       feedback.dateCreated = new Date();
       this.feedbackService.addFeedback(feedback).subscribe(() => {
         this.updateFeedbacks();
@@ -53,8 +65,8 @@ export class FeedbacksComponent implements OnInit {
   }
 
   updateFeedbacks() {
-    this.page = 1;
-    this.feedbackService.getFeedbacks(1,this.page,3).subscribe(feedbacks => this.feedbacksSubject.next(feedbacks));
+      this.page = 1;
+      this.feedbackService.getFeedbacks(this.feedbackProfile.idProfile,this.page,3).subscribe(feedbacks => this.feedbacksSubject.next(feedbacks));
   }
 
   getFeedbacks() {
@@ -63,7 +75,7 @@ export class FeedbacksComponent implements OnInit {
 
   showOlder() {
     this.page++;
-    this.feedbackService.getFeedbacks(1,this.page,3).subscribe(feedbacks => this.feedbacksSubject.next(feedbacks));
+    this.feedbackService.getFeedbacks(this.feedbackProfile.idProfile,this.page,3).subscribe(feedbacks => this.feedbacksSubject.next(feedbacks));
   }
 
 }

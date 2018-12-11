@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 declare var $ : any;
 
@@ -7,22 +8,28 @@ declare var $ : any;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
-
+export class HeaderComponent implements OnInit{
+  
   @Input()
   shortName : string;
-
+  
   @Input()
   mainActivity : string;
 
-  constructor() { }
+  url : string;
+  
+  constructor(private activatedRoute : ActivatedRoute) { }
+  
+  ngOnInit(): void {
+
+  }
 
   scrollClick(element) {
     $('#navbarContent').collapse('hide');
 
     $('html, body').animate({
-      scrollTop: $( $(element).attr('href') ).offset().top
-    }, 500);   
+      scrollTop: $( '#' + $(element).attr('fragment') ).offset().top
+    }, 500);    
   }
 
 }

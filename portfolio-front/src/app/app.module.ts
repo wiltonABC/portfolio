@@ -12,6 +12,8 @@ import { WorkDoneComponent } from './work-done/work-done.component';
 import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ContactComponent } from './contact/contact.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ContactComponent } from './contact/contact.component';
     SkillComponent,
     WorkDoneComponent,
     FeedbacksComponent,
-    ContactComponent
+    ContactComponent,
+    ProfileComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

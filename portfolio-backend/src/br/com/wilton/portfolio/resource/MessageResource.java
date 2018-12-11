@@ -1,9 +1,10 @@
 package br.com.wilton.portfolio.resource;
 
+import java.io.IOException;
 import java.net.URI;
-
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import javax.mail.MessagingException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -15,6 +16,7 @@ import javax.ws.rs.core.Response;
 
 import br.com.wilton.portfolio.dao.MessageDao;
 import br.com.wilton.portfolio.model.Message;
+import br.com.wilton.portfolio.util.EmailService;
 
 @Stateless
 @Path("messages")
@@ -22,6 +24,9 @@ public class MessageResource {
 	
 	@Inject
 	private MessageDao messageDao;
+	
+	@Inject
+	private EmailService emailService;
 	
 	@GET
 	@Path("{id}")
@@ -60,7 +65,25 @@ public class MessageResource {
 			URI uri = URI.create("/messages/" + message.getIdMessage());
 			response = Response.created(uri).build();
 			
-			//Try to send email
+			//Try to send email using a new thread after the message is persisted
+			(new Thread(new Runnable() {	
+				@Override
+				public void run() {
+					try {
+						emailService.sendMail(message.getName(), message.getEmail(), message.getSubject(), 
+								message.getMessage());
+					} catch (MessagingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			})).start();
+			
+			
+			
 			
 		} 
 		catch (Exception ex) {
