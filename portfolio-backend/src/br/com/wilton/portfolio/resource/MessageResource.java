@@ -39,7 +39,7 @@ public class MessageResource {
 			Message message = messageDao.find(id);
 			
 			if (message == null) {
-				response = Response.status(404).build();
+				response = Response.status(Response.Status.NOT_FOUND).build();
 			} else {
 				response= Response.ok(message).build();
 			}

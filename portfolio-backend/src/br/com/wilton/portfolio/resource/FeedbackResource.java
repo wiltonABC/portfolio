@@ -34,7 +34,7 @@ public class FeedbackResource {
 			Feedback feedback = feedbackDao.find(id);
 			
 			if (feedback == null) {
-				response = Response.status(404).build();
+				response = Response.status(Response.Status.NOT_FOUND).build();
 			} else {
 				response= Response.ok(feedback).build();
 			}

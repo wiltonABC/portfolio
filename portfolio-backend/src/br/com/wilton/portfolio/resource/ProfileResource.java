@@ -16,6 +16,7 @@ import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import br.com.wilton.portfolio.annotations.NeedsAuthToken;
 import br.com.wilton.portfolio.annotations.ProfileFullView;
 import br.com.wilton.portfolio.dao.FeedbackDao;
 import br.com.wilton.portfolio.dao.MessageDao;
@@ -60,7 +61,7 @@ public class ProfileResource {
 			Profile profile = profileDao.find(id);
 			
 			if (profile == null) {
-				response = Response.status(404).build();
+				response = Response.status(Response.Status.NOT_FOUND).build();
 			} else {
 				response= Response.ok(profile).build();
 			}
@@ -86,7 +87,7 @@ public class ProfileResource {
 			Profile profile = profileDao.findEager(id);
 
 			if (profile == null) {
-				response = Response.status(404).build();
+				response = Response.status(Response.Status.NOT_FOUND).build();
 			} else {
 				response = Response.ok(profile).build();
 			}
@@ -100,6 +101,8 @@ public class ProfileResource {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
+	@NeedsAuthToken(roles={"ADMIN", "USER"})
+	//This method should not be exposed for now - all the other methods are allowed for anyone
 	public Response insert(Profile profile) {
 		
 		Response response = null;
@@ -134,7 +137,7 @@ public class ProfileResource {
 			GenericEntity<List<Skill>> entity = new GenericEntity<List<Skill>>(skills){};
 			
 			if (skills == null) {
-				response = Response.status(404).build();
+				response = Response.status(Response.Status.NOT_FOUND).build();
 			} else {
 				response= Response.ok(entity).build();
 			}
@@ -159,7 +162,7 @@ public class ProfileResource {
 			GenericEntity<List<Message>> entity = new GenericEntity<List<Message>>(messages){};
 			
 			if (messages == null) {
-				response = Response.status(404).build();
+				response = Response.status(Response.Status.NOT_FOUND).build();
 			} else {
 				response= Response.ok(entity).build();
 			}
@@ -185,7 +188,7 @@ public class ProfileResource {
 			GenericEntity<List<Feedback>> entity = new GenericEntity<List<Feedback>>(feedbacks){};
 			
 			if (feedbacks == null) {
-				response = Response.status(404).build();
+				response = Response.status(Response.Status.NOT_FOUND).build();
 			} else {
 				response= Response.ok(entity).build();
 			}
@@ -210,7 +213,7 @@ public class ProfileResource {
 			GenericEntity<List<WorkDone>> entity = new GenericEntity<List<WorkDone>>(workDone){};
 			
 			if (workDone == null) {
-				response = Response.status(404).build();
+				response = Response.status(Response.Status.NOT_FOUND).build();
 			} else {
 				response= Response.ok(entity).build();
 			}
