@@ -3,14 +3,14 @@ package br.com.wilton.portfolio.test;
 import java.io.IOException;
 import java.util.Properties;
 
-import br.com.wilton.portfolio.config.EmailConfig;
+import br.com.wilton.portfolio.config.AppConfig;
 
 public class TestBundle {
 	
 	public static void main(String[] args) throws IOException {
-		EmailConfig config = EmailConfig.getInstance();
+		AppConfig config = AppConfig.getInstance();
 		
-		Properties prop = config.getMailProperties();
+		Properties prop = config.getProperties();
 		System.out.println(prop.getProperty("mail.mailTo"));
 	}
 

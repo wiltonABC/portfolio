@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  ApiUrl : 'http://localhost:8080/webapi'
+  ApiUrl : 'http://portfolio-wilton.us-east-2.elasticbeanstalk.com/webapi'
 };

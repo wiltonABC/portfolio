@@ -58,11 +58,5 @@
 	    <artifactId>jjwt-api</artifactId>
 	    <version>0.10.5</version>
 	</dependency>
-<!-- 	This should be removed after - Used only by the client application -->
-	<dependency>
-	    <groupId>org.glassfish.jersey.inject</groupId>
-	    <artifactId>jersey-hk2</artifactId>
-	    <version>2.26</version>
-	</dependency>
   </dependencies>
 </project>

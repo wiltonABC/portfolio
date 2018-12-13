@@ -16,7 +16,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
-import br.com.wilton.portfolio.config.EmailConfig;
+import br.com.wilton.portfolio.config.AppConfig;
 
 @Stateless
 public class EmailService {
@@ -60,8 +60,8 @@ public class EmailService {
 	//Initialize mail configuration properties
 	private void initializeProperties() throws IOException {
 		if (this.configProperties == null) {
-			EmailConfig emailConfig = EmailConfig.getInstance();
-			this.configProperties = emailConfig.getMailProperties();
+			AppConfig appConfig = AppConfig.getInstance();
+			this.configProperties = appConfig.getProperties();
 		}
 		
 		if (this.mailProperties == null) {

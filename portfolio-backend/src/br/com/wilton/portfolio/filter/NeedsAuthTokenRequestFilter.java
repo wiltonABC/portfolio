@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
 
 import br.com.wilton.portfolio.annotations.NeedsAuthToken;
+import br.com.wilton.portfolio.config.AppConfig;
 import io.jsonwebtoken.Jwts;
 
 //Apply this filter to annotated resource methods that need authentication
@@ -52,7 +53,8 @@ public class NeedsAuthTokenRequestFilter implements ContainerRequestFilter {
 			
 			//For now any user that has a valid token should access the annotated methods
 			//In the future a per role authorization may be implemented
-			String keyString = "a@s#4dZX";
+			
+			String keyString = AppConfig.getInstance().getProperties().getProperty("token.key");
 			Key key = new SecretKeySpec(keyString.getBytes(), "DES");
 			
 			Jwts.parser().setSigningKey(key).parseClaimsJws(token);
