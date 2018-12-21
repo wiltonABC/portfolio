@@ -12,3 +12,11 @@
  footer {
      padding: 20px;
  }
+
+ footer a {
+     color: white;
+ }
+
+ .smallFont {
+     font-size: 0.7rem;
+ }
