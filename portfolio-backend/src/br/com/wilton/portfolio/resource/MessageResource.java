@@ -14,9 +14,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import br.com.wilton.portfolio.config.AppConfig;
 import br.com.wilton.portfolio.dao.MessageDao;
 import br.com.wilton.portfolio.model.Message;
 import br.com.wilton.portfolio.util.EmailService;
+import br.com.wilton.portfolio.util.MailFormatter;
 
 @Stateless
 @Path("messages")
@@ -70,8 +72,17 @@ public class MessageResource {
 				@Override
 				public void run() {
 					try {
-						emailService.sendMail(message.getName(), message.getEmail(), message.getSubject(), 
-								message.getMessage());
+						MailFormatter mailFormatter = new MailFormatter();
+						
+						//Sending contact email
+						emailService.sendMail(AppConfig.getInstance().getProperties().getProperty("mail.mailTo"),
+								"Wilton Costa's Portfolio - " + message.getSubject(),
+								mailFormatter.getHtmlFormattedContactEmail(message.getName(), 
+								message.getEmail(), message.getMessage()));
+						//Sending confirmation mail to the sender
+						emailService.sendMail(message.getEmail()
+								, "Wilton Costa's Portfolio - Message receiving confirmation", 
+								mailFormatter.getHtmlFormattedConfirmationEmail(message.getName()));
 					} catch (MessagingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

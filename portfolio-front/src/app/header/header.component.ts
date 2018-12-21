@@ -17,11 +17,13 @@ export class HeaderComponent implements OnInit{
   mainActivity : string;
 
   url : string;
+
+  idProfile : number;
   
   constructor(private activatedRoute : ActivatedRoute) { }
   
   ngOnInit(): void {
-
+    this.idProfile = this.activatedRoute.snapshot.params.idProfile;
   }
 
   scrollClick(element) {

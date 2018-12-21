@@ -25,7 +25,7 @@ public class EmailService {
 	private Properties configProperties;
 	private String userName;
 	private String password;
-	private String mailTo;
+	private String mailFrom;
 	
 	private Session getSession() {
 		return Session.getInstance(this.mailProperties, new Authenticator() {
@@ -37,17 +37,19 @@ public class EmailService {
 	}
 	
 	//It Sends the message with the given arguments 
-	public void sendMail(String mailSender, String mailFrom, String mailSubject, String mailMessage) throws MessagingException, IOException {
+	public void sendMail(String mailTo, String mailSubject, String mailMessage) throws MessagingException, IOException {
 		initializeProperties();
 		
 		Message message = new MimeMessage(getSession());
-		message.setFrom(new InternetAddress(mailFrom));
+		message.setFrom(new InternetAddress(this.mailFrom));
+		message.setHeader("Return-Path", this.mailFrom);
 		message.setRecipients(
-		  Message.RecipientType.TO, InternetAddress.parse(this.mailTo));
+		  Message.RecipientType.TO, InternetAddress.parse(mailTo));
 		message.setSubject(mailSubject);
 		 
 		MimeBodyPart mimeBodyPart = new MimeBodyPart();
-		mimeBodyPart.setContent(mailSender + "\n\n" + mailMessage, "text/html;charset=utf-8");
+		
+		mimeBodyPart.setContent(mailMessage, "text/html;charset=utf-8");
 		 
 		Multipart multipart = new MimeMultipart();
 		multipart.addBodyPart(mimeBodyPart);
@@ -65,17 +67,18 @@ public class EmailService {
 		}
 		
 		if (this.mailProperties == null) {
+			//Properties passed for session creation
 			this.mailProperties = new Properties();
-			
 			this.mailProperties.put("mail.smtp.auth", this.configProperties.getProperty("mail.smtp.auth"));
 			this.mailProperties.put("mail.smtp.starttls.enable", this.configProperties.getProperty("mail.smtp.starttls.enable"));
 			this.mailProperties.put("mail.smtp.host", this.configProperties.getProperty("mail.smtp.host"));
 			this.mailProperties.put("mail.smtp.port", this.configProperties.getProperty("mail.smtp.port"));
 			this.mailProperties.put("mail.smtp.ssl.trust", this.configProperties.getProperty("mail.smtp.ssl.trust"));
 			
-			this.userName = this.configProperties.getProperty("mail.user.name");
-			this.password = this.configProperties.getProperty("mail.user.password");
-			this.mailTo = this.configProperties.getProperty("mail.mailTo");
+			//Email sender properties (Credentials and address used by the app to send emails)
+			this.userName = this.configProperties.getProperty("mail.smtp.user.name");
+			this.password = this.configProperties.getProperty("mail.smtp.user.password");
+			this.mailFrom = this.configProperties.getProperty("mail.mailFrom");
 		}
 	}
 

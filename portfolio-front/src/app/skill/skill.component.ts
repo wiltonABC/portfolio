@@ -12,7 +12,7 @@ import { i18nExp } from '@angular/core/src/render3';
 export class SkillComponent implements OnInit {
 
   private skillsSubject = new BehaviorSubject<Skill[]>([]);
-  private skillsByCategory : SkillCategory[];
+  skillsByCategory : SkillCategory[];
   
   @Input()
   set skills (value) {

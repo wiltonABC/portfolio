@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
-import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -25,7 +24,9 @@ const routes: Routes = [
 ];
 
 const routerOptions : ExtraOptions = {
-  useHash : false,
+  /* "useHash : true" is necessary because the glassfish app server where 
+  this app will be hosted (AWS) is not configured to always return index */
+  useHash : true,
   anchorScrolling : 'enabled'
 } 
 

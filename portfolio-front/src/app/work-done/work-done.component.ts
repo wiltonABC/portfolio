@@ -9,7 +9,7 @@ import { WorkDone } from './work-done';
 export class WorkDoneComponent implements OnInit {
 
   @Input()
-  private workDone : WorkDone[];
+  workDone : WorkDone[];
 
   constructor() { }
 

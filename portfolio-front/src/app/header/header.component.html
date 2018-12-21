@@ -8,31 +8,31 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a (click)="scrollClick($event.target)" class="nav-link" 
-          routerLink="/profiles/{{ this.activatedRoute.snapshot.params.idProfile }}" fragment="home">Home <span class="sr-only">(current)</span></a>
+          routerLink="/profiles/{{ idProfile }}" fragment="home">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a (click)="scrollClick($event.target)" class="nav-link" 
-          routerLink="/profiles/{{ this.activatedRoute.snapshot.params.idProfile }}" fragment="about">About me</a>
+          routerLink="/profiles/{{ idProfile }}" fragment="about">About me</a>
         </li>
         <li class="nav-item">
           <a (click)="scrollClick($event.target)" class="nav-link"
-          routerLink="/profiles/{{ this.activatedRoute.snapshot.params.idProfile }}" fragment="skills">My skills</a>
+          routerLink="/profiles/{{ idProfile }}" fragment="skills">My skills</a>
         </li>
         <li class="nav-item">
           <a (click)="scrollClick($event.target)" class="nav-link"
-          routerLink="/profiles/{{ this.activatedRoute.snapshot.params.idProfile }}" fragment="work">Work experience</a>
+          routerLink="/profiles/{{ idProfile }}" fragment="work">Work experience</a>
         </li>
         <li class="nav-item">
           <a (click)="scrollClick($event.target)" class="nav-link" 
-          routerLink="/profiles/{{ this.activatedRoute.snapshot.params.idProfile }}" fragment="about-site">About this site</a>
+          routerLink="/profiles/{{ idProfile }}" fragment="about-site">About this site</a>
         </li>
         <li class="nav-item">
           <a (click)="scrollClick($event.target)" class="nav-link" 
-          routerLink="/profiles/{{ this.activatedRoute.snapshot.params.idProfile }}" fragment="feedbacks" >Feedbacks</a>
+          routerLink="/profiles/{{ idProfile }}" fragment="feedbacks" >Feedbacks</a>
         </li>
         <li class="nav-item">
           <a (click)="scrollClick($event.target)" class="nav-link" 
-          routerLink="/profiles/{{ this.activatedRoute.snapshot.params.idProfile }}" fragment="contact">Contact me</a>
+          routerLink="/profiles/{{ idProfile }}" fragment="contact">Contact me</a>
         </li>
       </ul>
 

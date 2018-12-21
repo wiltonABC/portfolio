@@ -8,6 +8,15 @@
   <description>Web API for the Portfolio Solution</description>
   <build>
     <sourceDirectory>src</sourceDirectory>
+    <resources>
+	    <resource>
+	        <directory>src</directory>
+	        <includes>                      
+	            <include>**/*.xml</include>
+	            <include>**/*.properties</include>
+	        </includes>
+	    </resource>
+    </resources>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
