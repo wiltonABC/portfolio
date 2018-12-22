@@ -4,5 +4,6 @@ export interface Profile {
     mainActivity : string;
     about : string;
     image : string;
-
+    name : string;
+    email : string;
 }

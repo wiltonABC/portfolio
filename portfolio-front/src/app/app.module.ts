@@ -14,6 +14,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ContactComponent } from './contact/contact.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FeedbacksComponent,
     ContactComponent,
     ProfileComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

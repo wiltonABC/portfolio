@@ -1,5 +1,8 @@
 <app-header [shortName]="this.profile?.shortName" [mainActivity]="this.profile?.mainActivity"></app-header>
 
+<!-- Alert Component for application messages -->
+<app-alert></app-alert>
+
 <app-about [about]="this.profile?.about" [image]="this.profile?.image"></app-about>
 
 <app-skill [skills]="skills"></app-skill>
@@ -39,8 +42,8 @@
   <div class="row">
     <div class="text-white col-sm-12 col-md-12 col-lg-6 mb-3">
       <address class="mb-0">
-        <strong>Wilton Gomes da Costa Júnior</strong><br>
-        E-mail: <a href="mailto:wiltongomesjr@gmail.com">wiltongomesjr@gmail.com</a>
+        <strong>{{ this.profile?.name }}</strong><br>
+        E-mail: <a href="mailto:{{ this.profile?.email }}">{{ this.profile?.email }}</a>
       </address>
     </div>
     <div class="text-white col-sm-12 col-md-12 col-lg-6 text-left smallFont">

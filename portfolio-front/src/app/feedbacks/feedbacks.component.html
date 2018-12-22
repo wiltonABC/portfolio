@@ -38,7 +38,7 @@
             <span class="text-danger" *ngIf="feedbackForm.get('text').errors?.maxlength && form.submitted"> * Maximum length is 60</span>
             <textarea formControlName="text" id="feedback" class="form-control"></textarea>
           </div>
-          <button type="submit" (click)="addFeedback();" class="btn btn-primary">Send feedback</button>
+          <button #btnSubmit type="submit" (click)="addFeedback();" class="btn btn-primary">Send feedback</button>
         </form>  
       </div>
     </div>

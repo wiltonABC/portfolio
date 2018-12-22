@@ -5,6 +5,8 @@ import { Feedback } from './feedback';
 import { ProfileService } from '../profile/profile.service';
 import { Profile } from '../profile/profile';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { AlertService } from '../alert/alert.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-feedbacks',
@@ -31,8 +33,10 @@ export class FeedbacksComponent implements OnInit {
   //Workaround to make full reset of the form marking it as not submitted to clear all validator until next submit
   @ViewChild(FormGroupDirective) formToReset;
 
+  @ViewChild('btnSubmit') btnSubmit;
+
   constructor(private formBuilder : FormBuilder, private feedbackService : FeedbackService, 
-    private profileService : ProfileService) {
+    private profileService : ProfileService, private alertService : AlertService) {
   }
   
   ngOnInit() {
@@ -52,15 +56,19 @@ export class FeedbacksComponent implements OnInit {
 
   addFeedback() {
     if (this.feedbackForm.valid && !this.feedbackForm.pending && this.feedbackProfile) {
+      this.btnSubmit.nativeElement.disabled = true;
       let feedback : Feedback = this.feedbackForm.getRawValue() as Feedback;
       feedback.profile = this.feedbackProfile;
       feedback.dateCreated = new Date();
-      this.feedbackService.addFeedback(feedback).subscribe(() => {
-        this.updateFeedbacks();
-        if (this.formToReset) {
-          this.formToReset.resetForm();
-        }
-      });
+      this.feedbackService.addFeedback(feedback)
+        .pipe(finalize(() => this.btnSubmit.nativeElement.disabled = false))
+        .subscribe(() => {
+          this.updateFeedbacks();
+          this.alertService.success('Feedback successfully sent!');
+          if (this.formToReset) {
+            this.formToReset.resetForm();
+          }
+        }, () => this.alertService.error('Error sending the feedback!'));
     }
   }
 

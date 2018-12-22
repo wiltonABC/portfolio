@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular
 import { MessageService } from './message.service';
 import { Message } from './message';
 import { Profile } from '../profile/profile';
+import { AlertService } from '../alert/alert.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-contact',
@@ -19,7 +21,10 @@ export class ContactComponent implements OnInit {
   //Workaround to make full reset of the form marking it as not submitted to clear all validator until next submit
   @ViewChild(FormGroupDirective) formToReset;
 
-  constructor(private formBuilder : FormBuilder, private messageService : MessageService) { }
+  @ViewChild('btnSubmit') btnSubmit;
+
+  constructor(private formBuilder : FormBuilder, private messageService : MessageService
+    , private alertService : AlertService) { }
 
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
@@ -32,15 +37,20 @@ export class ContactComponent implements OnInit {
 
   sendMessage() {
     if (this.contactForm.valid && !this.contactForm.pending && this.profile) {
-      
+      this.btnSubmit.nativeElement.disabled = true;
+
       let message = this.contactForm.getRawValue() as Message;
       message.dateCreated = new Date();
       message.profile = this.profile;
-      this.messageService.addMessage(message).subscribe(() => {
-        if (this.formToReset) {
-          this.formToReset.resetForm();
-        }
-      });
+      this.messageService.addMessage(message)
+        .pipe(finalize(() => this.btnSubmit.nativeElement.disabled = false))
+        .subscribe(() => {
+          this.alertService.success('Message successfully sent!');
+          if (this.formToReset) {
+            this.formToReset.resetForm();
+          }
+        }, 
+          () => this.alertService.error('Error sending the message!'));
     }
   }
 

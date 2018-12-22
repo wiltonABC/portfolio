@@ -1,5 +1,7 @@
 package br.com.wilton.portfolio.util;
 
+import br.com.wilton.portfolio.model.Profile;
+
 public class MailFormatter {
 	
 	public String getHtmlFormattedContactEmail(String senderName, String fromMail, String message) {
@@ -13,14 +15,14 @@ public class MailFormatter {
 			 
 	}
 	
-	public String getHtmlFormattedConfirmationEmail(String senderName) {
-		String formattedMessage = "<h3>Wilton Costa</h3>"
-				+ "<h4>Systems Analyst | BI Developer</h4>"
+	public String getHtmlFormattedConfirmationEmail(String senderName, Profile profile) {
+		String formattedMessage = "<h3>" + profile.getShortName() + "</h3>"
+				+ "<h4>" + profile.getMainActivity() + "</h4>"
 				+ "<p>Dear " + senderName + ", thanks for contacting me.</p>"
 				+ "<p>I'm gonna try to reply your email as soon as possible.<p>"
 				+ "<h4>Contact information</h4>"
 				+ "<p>My portfolio site: <a href='http://portfolio-wilton.us-east-2.elasticbeanstalk.com/#/profiles/1'>http://portfolio-wilton.us-east-2.elasticbeanstalk.com/#/profiles/1</a></p>"
-				+ "<p>My email: <a href='mailto:wiltongomesjr@gmail.com'>wiltongomesjr@gmail.com</a></p>"
+				+ "<p>My email: <a href='mailto:" + profile.getEmail() + "'>" + profile.getEmail()  + "</a></p>"
 				+ "<p>*** This is an automated message. Please, don't reply. ***</p>";
 		return formattedMessage;
 			 
