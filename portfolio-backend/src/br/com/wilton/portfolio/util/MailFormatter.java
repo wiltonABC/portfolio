@@ -19,7 +19,7 @@ public class MailFormatter {
 		String formattedMessage = "<h3>" + profile.getShortName() + "</h3>"
 				+ "<h4>" + profile.getMainActivity() + "</h4>"
 				+ "<p>Dear " + senderName + ", thanks for contacting me.</p>"
-				+ "<p>I'm gonna try to reply your email as soon as possible.<p>"
+				+ "<p>I will reply your email as soon as possible.<p>"
 				+ "<h4>Contact information</h4>"
 				+ "<p>My portfolio site: <a href='http://portfolio-wilton.us-east-2.elasticbeanstalk.com/#/profiles/1'>http://portfolio-wilton.us-east-2.elasticbeanstalk.com/#/profiles/1</a></p>"
 				+ "<p>My email: <a href='mailto:" + profile.getEmail() + "'>" + profile.getEmail()  + "</a></p>"
