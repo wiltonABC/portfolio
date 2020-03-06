@@ -16,7 +16,7 @@ module.exports = (router) => {
             }
         });
 
-        connection.end();
+        connection.end();  
 
     });
 

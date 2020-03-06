@@ -1,14 +1,11 @@
 var mysql = require('mysql');
 
-function createConnection() {
-    return mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'w14j0813',
-        database: 'portfolio'
-    });
-}
+module.exports = (router) => function createConnection() {
 
-module.exports = () => {
-    return createConnection;
-}
+    return mysql.createConnection({
+            host: router.properties.path().database.host,
+            user: process.env.PORTFOLIO_USER,
+            password: process.env.PORTFOLIO_PASSWORD,
+            database: router.properties.path().database.database
+        });
+};

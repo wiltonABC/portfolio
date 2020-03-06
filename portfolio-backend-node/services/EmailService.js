@@ -8,8 +8,8 @@ class EmailService {
             host: properties.path().mail.smtp.host,
             port: properties.path().mail.smtp.port,
             auth: {
-              user: properties.path().mail.smtp.user.name,
-              pass: properties.path().mail.smtp.user.password
+              user: process.env.PORTFOLIO_EMAIL_USER,
+              pass: process.env.PORTFOLIO_EMAIL_PASSWORD
             },
             tls: {
                 ciphers: properties.path().mail.smtp.tls.ciphers
